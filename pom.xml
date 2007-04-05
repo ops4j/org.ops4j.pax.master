@@ -10,7 +10,7 @@
   <artifactId>master</artifactId>
   <name>OPS4J - Pax Master POM</name>
   <packaging>pom</packaging>
-  <version>1.4</version>
+  <version>1.5-SNAPSHOT</version>
   <description>Pax is the umbrella project for all the OSGi efforts at OPS4J. This is the parent POM of all Pax
     sub-projects.
   </description>
@@ -85,9 +85,4 @@
       </plugin>
     </plugins>
   </reporting>
-
-  <scm>
-    <connection>scm:svn:https://scm.ops4j.org/repos/ops4j/qa/pax/master-1.4</connection>
-    <developerConnection>scm:svn:https://scm.ops4j.org/repos/ops4j/qa/pax/master-1.4</developerConnection>
-  </scm>
 </project>
