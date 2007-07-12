@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>org</groupId>
-    <artifactId>ops4j</artifactId>
-    <version>1.1</version>
-  </parent>
   <groupId>org.ops4j.pax</groupId>
   <artifactId>master</artifactId>
   <name>OPS4J - Pax Master POM</name>
@@ -14,7 +10,53 @@
   <description>Pax is the umbrella project for all the OSGi efforts at OPS4J. This is the parent POM of all Pax
     sub-projects.
   </description>
+  <organization>
+    <name>OPS4J - Open Participation Software for Java</name>
+    <url>http://www.ops4j.org/</url>
+  </organization>
   <inceptionYear>2006</inceptionYear>
+
+  <licenses>
+    <license>
+      <name>ALv2</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <mailingLists>
+    <mailingList>
+      <name>General OPS4J</name>
+      <subscribe>general-subscribe@lists.ops4j.org</subscribe>
+      <unsubscribe>general-unsubscribe@lists.ops4j.org</unsubscribe>
+      <post>general@lists.ops4j.org</post>
+      <archive>http://lists.ops4j.org/pipermail/general</archive>
+    </mailingList>
+  </mailingLists>
+
+  <developers>
+    <developer>
+      <id>niclas</id>
+      <name>Niclas Hedhman</name>
+      <email>niclas@hedhman.org</email>
+      <organization>Jayway Malaysia Sdn Bhd</organization>
+      <roles>
+        <role>Developer</role>
+      </roles>
+      <timezone>UTC+8</timezone>
+    </developer>
+    <developer>
+      <id>efy</id>
+      <name>Edward Yakop</name>
+      <email>edward.yakop@jayway.net</email>
+      <organization>Jayway Malaysia Sdn Bhd</organization>
+      <roles>
+        <role>Developer</role>
+      </roles>
+      <timezone>UTC+8</timezone>
+    </developer>
+  </developers>
+
   <build>
     <plugins>
       <plugin>
@@ -42,6 +84,7 @@
       </extension>
     </extensions>
   </build>
+
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -52,6 +95,18 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
+
+  <distributionManagement>
+    <repository>
+      <id>upload-repository</id>
+      <url>scpexe://repository.ops4j.org/var/http/repository.ops4j.org/maven2</url>
+    </repository>
+    <site>
+      <id>website</id>
+      <url>scpexe://www.ops4j.org/var/http/www.ops4j.org/projects</url>
+    </site>
+  </distributionManagement>
+
   <repositories>
     <repository>
       <id>ops4j-repository</id>
@@ -62,6 +117,33 @@
       </snapshots>
     </repository>
   </repositories>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>ops4j-repository</id>
+      <name>The OPS4J Repository</name>
+      <url>http://repository.ops4j.org/maven2/</url>
+      <releases>
+        <updatePolicy>never</updatePolicy>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </pluginRepository>
+    <pluginRepository>
+      <releases>
+        <updatePolicy>never</updatePolicy>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>central</id>
+      <name>Maven Plugin Repository</name>
+      <url>http://repo1.maven.org/maven2</url>
+    </pluginRepository>
+  </pluginRepositories>
+
+
   <reporting>
     <plugins>
       <plugin>
@@ -88,4 +170,19 @@
       </plugin>
     </plugins>
   </reporting>
+
+  <ciManagement>
+    <system>bamboo</system>
+    <url>http://ci.ops4j.org/</url>
+    <notifiers>
+      <notifier>
+        <type>email</type>
+        <sendOnError>true</sendOnError>
+        <sendOnFailure>true</sendOnFailure>
+        <sendOnWarning>true</sendOnWarning>
+        <sendOnSuccess>false</sendOnSuccess>
+      </notifier>
+    </notifiers>
+  </ciManagement>
+
 </project>
