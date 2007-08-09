@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.ops4j.pax</groupId>
   <artifactId>master</artifactId>
   <name>OPS4J - Pax Master POM</name>
   <packaging>pom</packaging>
-  <version>1.8-SNAPSHOT</version>
+  <version>1.8</version>
   <description>Pax is the umbrella project for all the OSGi efforts at OPS4J. This is the parent POM of all Pax
     sub-projects.
   </description>
@@ -86,8 +85,8 @@
   </build>
 
    <scm>
-    <connection>scm:svn:https://scm.ops4j.org/repos/ops4j/projects/pax/</connection>
-    <developerConnection>scm:svn:https://scm.ops4j.org/repos/ops4j/projects/pax/</developerConnection>
+    <connection>scm:svn:https://scm.ops4j.org/repos/ops4j/qa/pax/master-1.8</connection>
+    <developerConnection>scm:svn:https://scm.ops4j.org/repos/ops4j/qa/pax/master-1.8</developerConnection>
   </scm>
   
   <dependencyManagement>
