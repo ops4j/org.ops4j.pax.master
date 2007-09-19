@@ -102,9 +102,13 @@
 
   <distributionManagement>
     <repository>
-      <id>upload-repository</id>
+      <id>standard</id>
       <url>scpexe://repository.ops4j.org/var/http/repository.ops4j.org/maven2</url>
     </repository>
+    <snapshotRepository>
+      <id>snapshots</id>
+      <url>scpexe://repository.ops4j.org/var/http/repository.ops4j.org/mvn-snapshots</url>
+    </snapshotRepository>
     <site>
       <id>website</id>
       <url>scpexe://www.ops4j.org/var/http/www.ops4j.org/projects</url>
@@ -113,11 +117,19 @@
 
   <repositories>
     <repository>
-      <id>ops4j-repository</id>
-      <name>The OPS4J Repository</name>
+      <id>standard</id>
+      <name>The OPS4J Standard Repository</name>
       <url>http://repository.ops4j.org/maven2/</url>
       <snapshots>
         <enabled>false</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>snapshots</id>
+      <name>The OPS4J Snapshot Repository</name>
+      <url>http://repository.ops4j.org/maven2/</url>
+      <snapshots>
+        <enabled>true</enabled>
       </snapshots>
     </repository>
   </repositories>
