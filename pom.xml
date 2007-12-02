@@ -1,18 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project
+    xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
   <modelVersion>4.0.0</modelVersion>
+
   <groupId>org.ops4j.pax</groupId>
   <artifactId>master</artifactId>
-  <name>OPS4J - Pax Master POM</name>
-  <packaging>pom</packaging>
   <version>1.10-SNAPSHOT</version>
-  <description>Pax is the umbrella project for all the OSGi efforts at OPS4J. This is the parent POM of all Pax
-    sub-projects.
+  <packaging>pom</packaging>
+
+  <name>OPS4J - Pax Master POM</name>
+  <description>
+    Pax is the umbrella project for all the OSGi efforts at OPS4J. This is the parent POM of all Pax sub-projects.
   </description>
+
   <organization>
     <name>OPS4J - Open Participation Software for Java</name>
     <url>http://www.ops4j.org/</url>
   </organization>
+
   <inceptionYear>2006</inceptionYear>
 
   <licenses>
@@ -33,34 +41,8 @@
     </mailingList>
   </mailingLists>
 
-  <developers>
-    <developer>
-      <id>niclas</id>
-      <name>Niclas Hedhman</name>
-      <email>niclas@hedhman.org</email>
-      <organization>Jayway Malaysia Sdn Bhd</organization>
-      <roles>
-        <role>Developer</role>
-      </roles>
-      <timezone>UTC+8</timezone>
-    </developer>
-    <developer>
-      <id>efy</id>
-      <name>Edward Yakop</name>
-      <email>edward.yakop@jayway.net</email>
-      <organization>Jayway Malaysia Sdn Bhd</organization>
-      <roles>
-        <role>Developer</role>
-      </roles>
-      <timezone>UTC+8</timezone>
-    </developer>
-  </developers>
-
   <build>
     <plugins>
-      <plugin>
-        <artifactId>maven-site-plugin</artifactId>
-      </plugin>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
@@ -69,12 +51,30 @@
         </configuration>
       </plugin>
       <plugin>
+        <artifactId>maven-site-plugin</artifactId>
+      </plugin>
+      <plugin>
         <artifactId>maven-release-plugin</artifactId>
+        <version>2.0-beta-6</version>
         <configuration>
+          <preparationGoals>clean install</preparationGoals>
           <tagBase>https://scm.ops4j.org/repos/ops4j/qa/pax</tagBase>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <systemProperties>
+            <property>
+              <name>net.sourceforge.cobertura.datafile</name>
+              <value>${basedir}/target/cobertura/cobertura.ser</value>
+            </property>
+          </systemProperties>
+        </configuration>
+      </plugin>
     </plugins>
+
     <extensions>
       <extension>
         <groupId>org.apache.maven.wagon</groupId>
@@ -84,17 +84,23 @@
     </extensions>
   </build>
 
-   <scm>
+  <scm>
     <connection>scm:svn:https://scm.ops4j.org/repos/ops4j/projects/pax/</connection>
     <developerConnection>scm:svn:https://scm.ops4j.org/repos/ops4j/projects/pax/</developerConnection>
   </scm>
-  
+
   <dependencyManagement>
     <dependencies>
       <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
-        <version>4.3.1</version>
+        <version>4.4</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.easymock</groupId>
+        <artifactId>easymock</artifactId>
+        <version>2.3</version>
         <scope>test</scope>
       </dependency>
     </dependencies>
@@ -102,30 +108,30 @@
 
   <distributionManagement>
     <repository>
-      <id>standard</id>
+      <id>ops4j.release.deploy</id>
       <url>scpexe://repository.ops4j.org/var/http/repository.ops4j.org/maven2</url>
     </repository>
     <snapshotRepository>
-      <id>snapshots</id>
+      <id>ops4j.snapshots.deploy</id>
       <url>scpexe://repository.ops4j.org/var/http/repository.ops4j.org/mvn-snapshots</url>
     </snapshotRepository>
     <site>
-      <id>website</id>
-      <url>scpexe://www.ops4j.org/var/http/www.ops4j.org/projects</url>
+      <id>ops4j.website.deploy</id>
+      <url>scpexe://www.ops4j.org/var/http/www.ops4j.org/projects/pax</url>
     </site>
   </distributionManagement>
 
   <repositories>
     <repository>
-      <id>standard</id>
-      <name>The OPS4J Standard Repository</name>
+      <id>ops4j.release</id>
+      <name>The OPS4J Release Repository</name>
       <url>http://repository.ops4j.org/maven2/</url>
       <snapshots>
         <enabled>false</enabled>
       </snapshots>
     </repository>
     <repository>
-      <id>snapshots</id>
+      <id>ops4j.snapshots</id>
       <name>The OPS4J Snapshot Repository</name>
       <url>http://repository.ops4j.org/mvn-snapshots/</url>
       <snapshots>
@@ -139,8 +145,8 @@
 
   <pluginRepositories>
     <pluginRepository>
-      <id>ops4j-repository</id>
-      <name>The OPS4J Repository</name>
+      <id>ops4j.release</id>
+      <name>The OPS4J Release Repository</name>
       <url>http://repository.ops4j.org/maven2/</url>
       <releases>
         <updatePolicy>never</updatePolicy>
@@ -150,18 +156,17 @@
       </snapshots>
     </pluginRepository>
     <pluginRepository>
+      <id>central</id>
+      <name>Maven Central Repository</name>
+      <url>http://repo1.maven.org/maven2/</url>
       <releases>
         <updatePolicy>never</updatePolicy>
       </releases>
       <snapshots>
         <enabled>false</enabled>
       </snapshots>
-      <id>central</id>
-      <name>Maven Plugin Repository</name>
-      <url>http://repo1.maven.org/maven2</url>
     </pluginRepository>
   </pluginRepositories>
-
 
   <reporting>
     <plugins>
@@ -186,6 +191,40 @@
       </plugin>
       <plugin>
         <artifactId>maven-project-info-reports-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <configuration>
+          <configLocation>src/site/ops4j-format.xml</configLocation>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-report-plugin</artifactId>
+        <configuration>
+          <aggregate>true</aggregate>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jxr-plugin</artifactId>
+        <version>2.0</version>
+        <configuration>
+          <aggregate>true</aggregate>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>cobertura-maven-plugin</artifactId>
+        <version>2.1</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-report-plugin</artifactId>
+        <configuration>
+          <aggregate>true</aggregate>
+        </configuration>
       </plugin>
     </plugins>
   </reporting>
