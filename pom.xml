@@ -4,7 +4,7 @@
 
   <groupId>org.ops4j.pax</groupId>
   <artifactId>master</artifactId>
-  <version>1.10</version>
+  <version>1.11-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>OPS4J - Pax Master POM</name>
@@ -81,8 +81,8 @@
   </build>
 
   <scm>
-    <connection>scm:svn:https://scm.ops4j.org/repos/ops4j/qa/pax/master-1.10</connection>
-    <developerConnection>scm:svn:https://scm.ops4j.org/repos/ops4j/qa/pax/master-1.10</developerConnection>
+    <connection>scm:svn:https://scm.ops4j.org/repos/ops4j/projects/pax/</connection>
+    <developerConnection>scm:svn:https://scm.ops4j.org/repos/ops4j/projects/pax/</developerConnection>
   </scm>
 
   <dependencyManagement>
