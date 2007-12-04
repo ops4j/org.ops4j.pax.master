@@ -4,7 +4,7 @@
 
   <groupId>org.ops4j.pax</groupId>
   <artifactId>master</artifactId>
-  <version>1.11-SNAPSHOT</version>
+  <version>1.10-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>OPS4J - Pax Master POM</name>
