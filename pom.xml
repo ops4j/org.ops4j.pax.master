@@ -64,7 +64,7 @@
   <distributionManagement>
     <repository>
       <id>ops4j.releases.deploy</id>
-      <url>scpexe://repository.ops4j.org/var/http/repository.ops4j.org/m2release</url>
+      <url>scpexe://repository.ops4j.org/var/http/repository.ops4j.org/mvn-releases</url>
     </repository>
     <snapshotRepository>
       <id>ops4j.snapshots.deploy</id>
