@@ -62,12 +62,12 @@
 
   <distributionManagement>
     <repository>
-      <id>ops4j.releases.deploy</id>
-      <url>scpexe://repository.ops4j.org/var/http/repository.ops4j.org/mvn-releases</url>
+      <id>ops4j-releases</id>
+      <url>http://oss.sonatype.org/content/repositories/ops4j-releases/</url>
     </repository>
     <snapshotRepository>
-      <id>ops4j.snapshots.deploy</id>
-      <url>scpexe://repository.ops4j.org/var/http/repository.ops4j.org/mvn-snapshots</url>
+      <id>ops4j-snapshots</id>
+      <url>http://oss.sonatype.org/content/repositories/ops4j-snapshots/</url>
     </snapshotRepository>
     <site>
       <id>ops4j.website.deploy</id>
