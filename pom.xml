@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
 
@@ -61,19 +62,49 @@
   </dependencyManagement>
 
   <distributionManagement>
-    <repository>
-      <id>ops4j-releases</id>
-      <url>http://oss.sonatype.org/content/repositories/ops4j-releases/</url>
-    </repository>
-    <snapshotRepository>
-      <id>ops4j-snapshots</id>
-      <url>http://oss.sonatype.org/content/repositories/ops4j-snapshots/</url>
-    </snapshotRepository>
     <site>
       <id>ops4j.website.deploy</id>
       <url>scpexe://www.ops4j.org/var/http/www.ops4j.org/projects/pax</url>
     </site>
   </distributionManagement>
+
+  <profiles>
+    <profile>
+      <id>repos.ops4j</id>
+      <distributionManagement>
+        <repository>
+          <id>ops4j.releases.deploy</id>
+          <url>scpexe://repository.ops4j.org/var/http/repository.ops4j.org/mvn-releases</url>
+        </repository>
+        <snapshotRepository>
+          <id>ops4j.snapshots.deploy</id>
+          <url>scpexe://repository.ops4j.org/var/http/repository.ops4j.org/mvn-snapshots</url>
+        </snapshotRepository>
+      </distributionManagement>
+    </profile>
+    <profile>
+      <id>repos.sonatype</id>
+      <distributionManagement>
+        <repository>
+          <id>sonatype.releases.deploy</id>
+          <url>http://oss.sonatype.org/content/repositories/ops4j-releases/</url>
+        </repository>
+        <snapshotRepository>
+          <id>sonatype.snapshots.deploy</id>
+          <url>http://oss.sonatype.org/content/repositories/ops4j-snapshots/</url>
+        </snapshotRepository>
+      </distributionManagement>
+    </profile>
+    <profile>
+      <id>repos.sonatype.staging</id>
+      <distributionManagement>
+        <repository>
+          <id>sonatype.staging.releases.deploy</id>
+          <url>http://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+      </distributionManagement>
+    </profile>
+  </profiles>
 
   <build>
     <plugins>
