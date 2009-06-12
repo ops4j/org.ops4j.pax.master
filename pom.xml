@@ -20,6 +20,8 @@
     Maven parent POM for all OPS4J PAX Maven projects.
   </description>
 
+  <url>http://www.ops4j.org/projects/pax/master</url>
+
   <scm>
     <connection>scm:svn:https://scm.ops4j.org/repos/ops4j/projects/pax/</connection>
     <developerConnection>scm:svn:https://scm.ops4j.org/repos/ops4j/projects/pax/</developerConnection>
