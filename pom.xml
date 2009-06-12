@@ -34,6 +34,11 @@
     </site>
   </distributionManagement>
 
+  <issueManagement>
+    <system>jira</system>
+    <url>http://issues.ops4j.org</url>
+  </issueManagement>
+
   <build>
     <plugins>
       <plugin>
