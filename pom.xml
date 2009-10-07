@@ -10,7 +10,7 @@
 
   <groupId>org.ops4j.pax</groupId>
   <artifactId>master</artifactId>
-  <version>3.1.1-SNAPSHOT</version>
+  <version>3.1.1</version>
   <packaging>pom</packaging>
 
   <name>OPS4J - Pax Master POM</name>
@@ -21,8 +21,8 @@
   <url>http://www.ops4j.org/projects/pax/master</url>
 
   <scm>
-    <connection>scm:svn:https://scm.ops4j.org/repos/ops4j/projects/pax/</connection>
-    <developerConnection>scm:svn:https://scm.ops4j.org/repos/ops4j/projects/pax/</developerConnection>
+    <connection>scm:svn:https://scm.ops4j.org/repos/ops4j/qa/pax/master-3.1.1</connection>
+    <developerConnection>scm:svn:https://scm.ops4j.org/repos/ops4j/qa/pax/master-3.1.1</developerConnection>
   </scm>
 
   <distributionManagement>
